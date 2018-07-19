@@ -13,6 +13,14 @@ iShelf API for PayU Integration Sample.
 7. Sample CRUD endpoints
 8. Localization
 
+## Documentation
+
+There are multiple ways of previewing iShelf API documentation:
+
+- browsable API at <api-url>/api/
+- Swagger API documentation at <api-url>/api/docs/
+- Postman collection and environment located in `resources/postman` directory
+
 ## Backend management
 
 1. Create virtual environment:

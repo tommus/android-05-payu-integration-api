@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "0c209f86-bdfd-49fa-a03e-9760aac34476",
+		"name": "iShelf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"description": "",
+			"item": [
+				{
+					"name": "/api/token/ - Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"{{sample-username}}\",\n\t\"password\": \"{{sample-password}}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{api-address}}/api/token/",
+							"host": [
+								"{{api-address}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						},
+						"description": "Authenticate user using credentials."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Content",
+			"description": "",
+			"item": [
+				{
+					"name": "Authors",
+					"description": "",
+					"item": [
+						{
+							"name": "/api/content/authors/ - Retrieve list of authors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"tommus\",\n\t\"password\": \"tommus_123\"\n}"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/authors/?page=1",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"authors",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Retrieve list of authors."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/authors/ - Add new author",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"first_name\": \"Joanne Kathleen\",\n\t\"last_name\": \"Rowling\",\n\t\"active\": true\n}\n"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/authors/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"authors",
+										""
+									]
+								},
+								"description": "Add new author."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/authors/{id}/ - Retrieve author details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"tommus\",\n\t\"password\": \"tommus_123\"\n}"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/authors/1/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"authors",
+										"1",
+										""
+									]
+								},
+								"description": "Retrieve single author details."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/authors/{id}/ - Completely edit an existing author",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"first_name\": \"Joanne Kathleen\",\n\t\"last_name\": \"Rowling\",\n\t\"active\": false\n}\n"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/authors/9/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"authors",
+										"9",
+										""
+									]
+								},
+								"description": "Completely edit an existing author."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/authors/{id}/ - Partially edit an existing author",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"active\": false\n}\n"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/authors/9/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"authors",
+										"9",
+										""
+									]
+								},
+								"description": "Partially edit an existing author."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/authors/{id}/ - Delete existing author",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{api-address}}/api/content/authors/9/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"authors",
+										"9",
+										""
+									]
+								},
+								"description": "Delete existing author."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Books",
+					"description": "",
+					"item": [
+						{
+							"name": "/api/content/books/ - Retrieve list of books",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"tommus\",\n\t\"password\": \"tommus_123\"\n}"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/books/?page=1",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"books",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								},
+								"description": "Retrieve list of books."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/books/{id}/ - Add new book",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Harry Potter i Kamień Filozoficzny\",\n  \"subtitle\": \"\",\n  \"published\": \"2018-01-29T01:43:01+01:00\",\n  \"regular_price\": 1999,\n  \"discount_price\": 1999,\n  \"description\": \"Harry Potter to sierota i podrzutek, od niemowlęcia wychowywany przez ciotkę i wuja, którzy podobnie jak ich syn Dudley - traktowali go jak piąte koło u wozu. Pochodzenie chłopca owiane jest tajemnicą, jedyna pamiątka z przeszłości to zagadkowa blizna na jego czole. Skąd jednak biorą się niesamowite zjawiska, które towarzyszą nieświadomemu niczego Potterowi? Wszystko wyjaśni się w jedenaste urodziny chłopca, a będzie to dopiero początek Wielkiej Tajemnicy...\",\n  \"isbn\": \"8372780005\",\n  \"pages\": 324,\n  \"active\": true,\n  \"cover\": null,\n  \"author\": 0\n}\n"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/books/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"books",
+										""
+									]
+								},
+								"description": "Add new book."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/books/{id}/ - Retrieve book details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"username\": \"tommus\",\n\t\"password\": \"tommus_123\"\n}"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/books/23/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"books",
+										"23",
+										""
+									]
+								},
+								"description": "Retrieve book details."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/books/{id}/ - Completely edit an existing book",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Harry Potter i Kamień Filozoficzny",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "subtitle",
+											"value": "\"\"",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "2018-01-29T01:43:01+01:00",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "regular_price",
+											"value": "1999",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "discount_price",
+											"value": "1999",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Harry Potter to sierota i podrzutek, od niemowlęcia wychowywany przez ciotkę i wuja, którzy podobnie jak ich syn Dudley - traktowali go jak piąte koło u wozu. Pochodzenie chłopca owiane jest tajemnicą, jedyna pamiątka z przeszłości to zagadkowa blizna na jego czole. Skąd jednak biorą się niesamowite zjawiska, które towarzyszą nieświadomemu niczego Potterowi? Wszystko wyjaśni się w jedenaste urodziny chłopca, a będzie to dopiero początek Wielkiej Tajemnicy...",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "isbn",
+											"value": "8372780005",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "pages",
+											"value": "324",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "active",
+											"value": "true",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "10",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "cover",
+											"value": "",
+											"description": "",
+											"type": "file"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/books/23/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"books",
+										"23",
+										""
+									]
+								},
+								"description": "Completely edit an existing book."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/books/{id}/ - Partially edit an existing book",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Harry Potter i Kamień Filozoficzny\",\n    \"published\": \"2018-01-29T01:43:01+01:00\",\n    \"regular_price\": 1999,\n    \"discount_price\": 1999,\n    \"description\": \"Harry Potter to sierota i podrzutek, od niemowlęcia wychowywany przez ciotkę i wuja, którzy podobnie jak ich syn Dudley - traktowali go jak piąte koło u wozu. Pochodzenie chłopca owiane jest tajemnicą, jedyna pamiątka z przeszłości to zagadkowa blizna na jego czole. Skąd jednak biorą się niesamowite zjawiska, które towarzyszą nieświadomemu niczego Potterowi? Wszystko wyjaśni się w jedenaste urodziny chłopca, a będzie to dopiero początek Wielkiej Tajemnicy...\",\n    \"isbn\": \"8372780005\",\n    \"pages\": 324,\n    \"active\": false,\n    \"author\": 10\n}"
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/books/23/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"books",
+										"23",
+										""
+									]
+								},
+								"description": "Partially edit an existing book."
+							},
+							"response": []
+						},
+						{
+							"name": "/api/content/books/{id}/ - Delete existing book",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access-token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api-address}}/api/content/books/23/",
+									"host": [
+										"{{api-address}}"
+									],
+									"path": [
+										"api",
+										"content",
+										"books",
+										"23",
+										""
+									]
+								},
+								"description": "Delete existing book."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
