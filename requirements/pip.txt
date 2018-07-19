@@ -1,0 +1,20 @@
+# region Base packages
+
+pip==10.*
+
+# endregion
+
+# region Django
+
+django
+djangorestframework
+
+# endregion
+
+# region Miscellaneous
+
+markdown
+Pillow
+Werkzeug
+
+# endregion
